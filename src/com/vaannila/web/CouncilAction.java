@@ -59,6 +59,7 @@ public class CouncilAction extends ActionSupport implements ModelDriven<Council>
 		councilList=councilDAO.listCouncil();
 		return SUCCESS;
 		//dfgfdgfdg
+		//jnnkjn
 	}
 	
 	public String search(){
