@@ -58,6 +58,7 @@ public class CouncilAction extends ActionSupport implements ModelDriven<Council>
 		councilDAO.deleteCouncil(Integer.parseInt(request.getParameter("councilId")));
 		councilList=councilDAO.listCouncil();
 		return SUCCESS;
+		//dfgfdgfdg
 	}
 	
 	public String search(){
