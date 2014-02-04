@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+ 	<package name="default" extends="hibernate-default">
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.NumberFormatException"
+				result="error" />
+			<exception-mapping exception="java.lang.NullPointerException"
+				result="error" />
+			 <exception-mapping exception="java.lang.Exception" result="error"/>
+		</global-exception-mappings>
+
+		<action name="saveOrUpdateUser" method="saveOrUpdate"
+			class="com.vaannila.web.UserAction">
+			 <result name="input">/Error.jsp</result>
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="listUser" method="list" class="com.vaannila.web.UserAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="editUser" method="edit" class="com.vaannila.web.UserAction">
+			<result name="success">/register.jsp</result>
+			<result name="error">/Error.jsp</result>
+		</action>
+
+		<action name="deleteUser" method="delete" class="com.vaannila.web.UserAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+
+		<action name="selectCity" method="selectCity" class="com.vaannila.web.UserAction">
+			<result name="success">ajax_cities.jsp</result>
+		</action>
+
+		<action name="allUser" method="list" class="com.vaannila.web.UserAction">
+			<result name="success">/all_users.jsp</result>
+		</action>
+
+		<action name="signin" class="com.vaannila.web.LoginAction">
+			<result name="success">/Error.jsp</result>
+		</action>
+	
+	</package>
+
+	<include file="struts-countries.xml"></include>
+	<include file="struts-cities.xml"></include>
+	<include file="struts-council.xml"></include>
+</struts>

@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="cities" extends="hibernate-default">
+		<action name="ListCity" method="list" class="com.vaannila.web.CityAction">
+			<result name="success" >/cities.jsp</result>
+		</action>
+		
+		<action name="saveOrUpdateCity" method="saveOrUpdate" class="com.vaannila.web.CityAction">
+			<result name="success" type="redirect">ListCity</result>
+		</action>
+		
+		<action name="editCity" method="edit" class="com.vaannila.web.CityAction">
+			<result name="success">/cities.jsp</result>
+		</action>
+		
+		<action name="deleteCity" method="delete" class="com.vaannila.web.CityAction">
+			<result name="success" type="redirect">ListCity</result>
+		</action>
+		
+	</package>
+</struts>

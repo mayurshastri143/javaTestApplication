@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="countries" extends="hibernate-default">
+		<action name="ListCountry" method="list" class="com.vaannila.web.CountryAction">
+			<result name="success" >/countries.jsp</result>
+		</action>
+		
+		<action name="saveOrUpdateCountry" method="saveOrUpdate" class="com.vaannila.web.CountryAction">
+			<result name="success" type="redirect">ListCountry</result>
+		</action>
+		
+		<action name="editCountry" method="edit" class="com.vaannila.web.CountryAction">
+			<result name="success">/countries.jsp</result>
+		</action>
+		
+		<action name="deleteCountry" method="delete" class="com.vaannila.web.CountryAction">
+			<result name="success" type="redirect">ListCountry</result>
+		</action>
+		
+	</package>
+</struts>

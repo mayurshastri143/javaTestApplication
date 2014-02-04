@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="council" extends="hibernate-default">
+		<action name="ListCouncil" method="list" class="com.vaannila.web.CouncilAction">
+			<result name="success" >council/councilList.jsp</result>
+		</action>
+		<action name="saveOrUpdateCouncil" method="saveOrUpdate" class="com.vaannila.web.CouncilAction">
+			<result name="success" type="redirect">ListCouncil</result>
+		</action>
+		<action name="editCouncil" method="edit" class="com.vaannila.web.CouncilAction">
+			<result name="success">council/councilList.jsp</result>
+		</action>
+		<action name="deleteCouncil" method="delete" class="com.vaannila.web.CouncilAction">
+			<result name="success">council/councilList.jsp</result>
+		</action>
+		<action name="searchCouncil" method="search" class="com.vaannila.web.CouncilAction">
+			<result name="success">council/councilList.jsp</result>
+		</action>
+	</package>
+</struts>
