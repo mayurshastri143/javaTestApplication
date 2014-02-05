@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="company" extends="hibernate-default">
+		<action name="ListCompany" method="list" class="com.vaannila.web.CompanyAction">
+			<result name="success" >company/companyList.jsp</result>
+		</action>
+		<action name="saveOrUpdateCompany" method="saveOrUpdate" class="com.vaannila.web.CompanyAction">
+			<result name="success" type="redirect">ListCompany</result>
+		</action>
+		<action name="editCompany" method="edit" class="com.vaannila.web.CompanyAction">
+			<result name="success">company/companyList.jsp</result>
+		</action>
+		<action name="deleteCompany" method="delete" class="com.vaannila.web.CompanyAction">
+			<result name="success">company/companyList.jsp</result>
+		</action>
+		<action name="searchCompany" method="search" class="com.vaannila.web.CompanyAction">
+			<result name="success">company/companyList.jsp</result>
+		</action>
+	</package>
+</struts>
