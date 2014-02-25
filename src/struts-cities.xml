@@ -4,8 +4,14 @@
 
 <struts>
 	<package name="cities" extends="hibernate-default">
+	
+ 		<result-types>
+            <result-type name="tiles"
+                class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        
 		<action name="ListCity" method="list" class="com.vaannila.web.CityAction">
-			<result name="success" >/cities.jsp</result>
+			<result name="success" type="tiles">/cities.tiles</result>
 		</action>
 		
 		<action name="saveOrUpdateCity" method="saveOrUpdate" class="com.vaannila.web.CityAction">
@@ -13,7 +19,7 @@
 		</action>
 		
 		<action name="editCity" method="edit" class="com.vaannila.web.CityAction">
-			<result name="success">/cities.jsp</result>
+			<result name="success" type="tiles">/cities.jsp</result>
 		</action>
 		
 		<action name="deleteCity" method="delete" class="com.vaannila.web.CityAction">

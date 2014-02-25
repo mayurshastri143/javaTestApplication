@@ -41,5 +41,8 @@
 		<mapping class="com.vaannila.domain.User" />
 		<mapping class="com.vaannila.domain.City" />
 		<mapping class="com.vaannila.domain.Council" />
+		<mapping class="com.vaannila.domain.CompanyType" />
+		<mapping class="com.vaannila.domain.Company" />
+		
 	</session-factory>
 </hibernate-configuration>

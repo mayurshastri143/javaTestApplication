@@ -3,8 +3,13 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+ 	<constant name="struts.devMode" value="false" />
  	<package name="default" extends="hibernate-default">
-
+ 		<result-types>
+            <result-type name="tiles"
+                class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.NumberFormatException"
 				result="error" />
@@ -19,10 +24,11 @@
 			<result name="success" type="redirect">listUser</result>
 		</action>
 		<action name="listUser" method="list" class="com.vaannila.web.UserAction">
-			<result name="success">/register.jsp</result>
+			<result name="success" type="tiles">/register.tiles</result>
 		</action>
+		
 		<action name="editUser" method="edit" class="com.vaannila.web.UserAction">
-			<result name="success">/register.jsp</result>
+			<result name="success" type="tiles">/register.tiles</result>
 			<result name="error">/Error.jsp</result>
 		</action>
 
@@ -38,13 +44,19 @@
 			<result name="success">/all_users.jsp</result>
 		</action>
 
-		<action name="signin" class="com.vaannila.web.LoginAction">
-			<result name="success">/Error.jsp</result>
-		</action>
+<!-- 		<action name="signin" class="com.vaannila.web.LoginAction"> -->
+<!-- 			<result name="success">/Error.jsp</result> -->
+<!-- 		</action> -->
+	
+		<action name="SignIn">
+            <result name="success" type="tiles">/SignIn.tiles</result>
+        </action>
 	
 	</package>
 
 	<include file="struts-countries.xml"></include>
 	<include file="struts-cities.xml"></include>
 	<include file="struts-council.xml"></include>
+	<include file="struts-companyTypes.xml"></include>
+	<include file="struts-companies.xml"></include>
 </struts>

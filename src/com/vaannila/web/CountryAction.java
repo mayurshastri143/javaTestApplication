@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.vaannila.dao.CountryDAO;
-import com.vaannila.dao.CountryImpl;
+import com.vaannila.dao.CountryDAOImpl;
 import com.vaannila.domain.Country;
 
 public class CountryAction extends ActionSupport implements ModelDriven<Country>{
@@ -22,7 +22,7 @@ public class CountryAction extends ActionSupport implements ModelDriven<Country>
 	private static final long serialVersionUID = -384611401611075419L;
 
 	private Country country = new Country();
-	private CountryDAO countryDAO=new CountryImpl();
+	private CountryDAO countryDAO=new CountryDAOImpl();
 	private List<Country> countryList=new ArrayList<Country>();
 	
 	@Override

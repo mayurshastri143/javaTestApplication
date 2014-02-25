@@ -12,9 +12,9 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.vaannila.dao.CityDAO;
-import com.vaannila.dao.CityImpl;
+import com.vaannila.dao.CityDAOImpl;
 import com.vaannila.dao.CountryDAO;
-import com.vaannila.dao.CountryImpl;
+import com.vaannila.dao.CountryDAOImpl;
 import com.vaannila.dao.UserDAO;
 import com.vaannila.dao.UserDAOImpl;
 import com.vaannila.domain.City;
@@ -33,8 +33,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private List<Country> countryList = new ArrayList<Country>();
 	private List<City> cityList = new ArrayList<City>();
 	private UserDAO userDAO = new UserDAOImpl();
-	private CountryDAO countryDAO = new CountryImpl();
-	private CityDAO cityDAO = new CityImpl();
+	private CountryDAO countryDAO = new CountryDAOImpl();
+	private CityDAO cityDAO = new CityDAOImpl();
 	private SessionMap<String,Object> sessionMap;  
 	
 	@Override

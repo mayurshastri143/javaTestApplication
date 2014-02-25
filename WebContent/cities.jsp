@@ -14,8 +14,8 @@
 </head>
 <body>
 
-	<s:a href="listUser">All Users</s:a>
-	<s:a href="listCountry">All Countries</s:a>
+<%-- 	<s:a href="listUser">All Users</s:a> --%>
+<%-- 	<s:a href="listCountry">All Countries</s:a> --%>
 
 	<s:form action="saveOrUpdateCity">
 		<s:push value="city">

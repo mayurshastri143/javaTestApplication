@@ -9,7 +9,7 @@ import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 import com.vaannila.domain.Country;
 
-public class CountryImpl implements CountryDAO {
+public class CountryDAOImpl implements CountryDAO {
 	@SessionTarget
 	Session session;
 

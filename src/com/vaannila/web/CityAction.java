@@ -11,9 +11,9 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.vaannila.dao.CityDAO;
-import com.vaannila.dao.CityImpl;
+import com.vaannila.dao.CityDAOImpl;
 import com.vaannila.dao.CountryDAO;
-import com.vaannila.dao.CountryImpl;
+import com.vaannila.dao.CountryDAOImpl;
 import com.vaannila.domain.City;
 import com.vaannila.domain.Country;
 
@@ -25,10 +25,10 @@ public class CityAction extends ActionSupport implements ModelDriven<City>{
 	private static final long serialVersionUID = -384611401611075419L;
 
 	private City city= new City();
-	private CityDAO cityDAO=new CityImpl();
+	private CityDAO cityDAO=new CityDAOImpl();
 	private List<City> cityList=new ArrayList<City>();
 	private List<Country> countryList=new ArrayList<Country>();
-	private CountryDAO countryDAO=new CountryImpl();
+	private CountryDAO countryDAO=new CountryDAOImpl();
 	private Country country = new Country();
 	
 	@Override
@@ -41,7 +41,7 @@ public class CityAction extends ActionSupport implements ModelDriven<City>{
 		if(city.getCityName()==null){
 			countryList=countryDAO.listCountry();
 		}else{
-			cityDAO.saveOrUpdateCity(city);
+			cityDAO.save(city);
 			countryList=countryDAO.listCountry();
 		}
 		return SUCCESS;
@@ -49,7 +49,7 @@ public class CityAction extends ActionSupport implements ModelDriven<City>{
 	
 	public String list()
 	{
-		cityList=cityDAO.listCity();
+		cityList=cityDAO.findAll(City.class);
 		countryList=countryDAO.listCountry();
 		return SUCCESS;
 	}
@@ -57,7 +57,7 @@ public class CityAction extends ActionSupport implements ModelDriven<City>{
 	public String delete()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		cityDAO.deleteCity(Integer.parseInt(request.getParameter("CityId")));
+		cityDAO.delete(city);
 		return SUCCESS;
 	}
 	
@@ -65,8 +65,8 @@ public class CityAction extends ActionSupport implements ModelDriven<City>{
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		System.out.println(request.getParameter("CityId"));
-		city = cityDAO.listCityById(Integer.parseInt(request.getParameter("CityId")));
-		cityList=cityDAO.listCity();
+		city = cityDAO.findByID(City.class, Integer.parseInt(request.getParameter("CityId")));
+		cityList=cityDAO.findAll(City.class);
 		countryList=countryDAO.listCountry();
 		return SUCCESS;
 	}
