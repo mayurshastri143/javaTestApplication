@@ -61,5 +61,6 @@
 		<display:column paramId="companyId" paramProperty="companyId" title="Delete" 
  			href="deleteCompany">Delete</display:column> 
  	</display:table>
+ 	<p>End here</p>
 </body>
 </html>
