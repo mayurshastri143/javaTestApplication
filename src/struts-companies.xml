@@ -4,19 +4,19 @@
 <struts>
 	<package name="company" extends="hibernate-default">
 		<action name="ListCompany" method="list" class="com.vaannila.web.CompanyAction">
-			<result name="success" >company/companyList.jsp</result>
+			<result name="success" type="tiles">/companyList.jsp</result>
 		</action>
 		<action name="saveOrUpdateCompany" method="saveOrUpdate" class="com.vaannila.web.CompanyAction">
 			<result name="success" type="redirect">ListCompany</result>
 		</action>
 		<action name="editCompany" method="edit" class="com.vaannila.web.CompanyAction">
-			<result name="success">company/companyList.jsp</result>
+			<result name="success" type="tiles">/companyList.jsp</result>
 		</action>
 		<action name="deleteCompany" method="delete" class="com.vaannila.web.CompanyAction">
-			<result name="success">company/companyList.jsp</result>
+			<result name="success" type="tiles">/companyList.jsp</result>
 		</action>
 		<action name="searchCompany" method="search" class="com.vaannila.web.CompanyAction">
-			<result name="success">company/companyList.jsp</result>
+			<result name="success" type="tiles">/companyList.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -50,7 +50,7 @@ public class CompanyAction extends ActionSupport implements ModelDriven<Company>
 	
 	public String list()
 	{
-		companyList=companyDAO.findAll(CompanyType.class);
+		companyList=companyDAO.findAll(Company.class);
 		companyTypeList=companyTypeDAO.findAll(CompanyType.class);
 		return SUCCESS;
 	}

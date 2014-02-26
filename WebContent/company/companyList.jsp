@@ -31,35 +31,35 @@
 			<s:textfield name="companyName" label="Company Name" />
 			<s:select list="companyTypeList" listKey="companyTypeId"
  				listValue="companyTypeName" name="companyType.CompanyTypeId" headerKey=""
- 				headerValue="Select" label="Select CompanyType" /> --%>
- 			<s:submit cssClass="btn btn-success" /> --%>
+ 				headerValue="Select" label="Select CompanyType" />
+ 			<s:submit cssClass="btn btn-success" />
 		</s:push>
 	</s:form>
 	
-<%-- 	<s:form action="searchCompany"> --%>
-<%-- 		<s:textfield name="companyName" label="Search the Company Name"/> --%>
-<%-- 		<s:submit cssClass="btn btn-success" /> --%>
-<%-- 	</s:form> --%>
+	<s:form action="searchCompany">
+		<s:textfield name="companyName" label="Search the Company Name"/>
+		<s:submit cssClass="btn btn-success" />
+	</s:form>
 	
-<%-- 	<display:table name="${companyList}" id="companyList" --%>
-<%-- 		class="table table-striped table-bordered" list="companyList" --%>
-<%-- 		requestURI="/ListCompany" pagesize="3" export="true"> --%>
-<%-- 		<display:setProperty name="export.pdf.filename" value="example.pdf" /> --%>
-<%-- 		<display:setProperty name="decorator.media.rtf" --%>
-<%-- 			value="org.displaytag.sample.decorators.ItextTotalWrapper" /> --%>
-<%-- 		<display:setProperty name="export.rtf.filename" value="example.rtf" /> --%>
-<%-- 		<display:setProperty name="decorator.media.excel" --%>
-<%-- 			value="org.displaytag.sample.decorators.HssfTotalWrapper" /> --%>
-<%-- 		<display:setProperty name="export.excel.filename" value="example.xls" /> --%>
-<%-- 		<display:setProperty name="export.pdf" value="true" /> --%>
-<%-- 		<display:setProperty name="export.xml" value="true" /> --%>
-<%-- 		<display:setProperty name="export.csv" value="true" /> --%>
-<%-- 		<display:column property="companyName" title="Company Name" sortable="true"></display:column> --%>
-<%-- 		<display:column title="Company Type" sortable="true">${companyList.companyType.CompanyTypeName}</display:column> --%>
-<%-- 		<display:column paramId="companyId" paramProperty="companyId" title="Edit" --%>
-<%-- 			href="editCompany">Edit</display:column> --%>
-<%-- 		<display:column paramId="companyId" paramProperty="companyId" title="Delete" --%>
-<%-- 			href="deleteCompany">Delete</display:column> --%>
-<%-- 	</display:table> --%>
+	<display:table name="${companyList}" id="companyList"
+ 		class="table table-striped table-bordered" list="companyList" 
+ 		requestURI="/ListCompany" pagesize="3" export="true"> 
+		<display:setProperty name="export.pdf.filename" value="example.pdf" />
+		<display:setProperty name="decorator.media.rtf"
+			value="org.displaytag.sample.decorators.ItextTotalWrapper" />
+		<display:setProperty name="export.rtf.filename" value="example.rtf" />
+		<display:setProperty name="decorator.media.excel"
+			value="org.displaytag.sample.decorators.HssfTotalWrapper" />
+		<display:setProperty name="export.excel.filename" value="example.xls" />
+		<display:setProperty name="export.pdf" value="true" />
+		<display:setProperty name="export.xml" value="true" />
+		<display:setProperty name="export.csv" value="true" />
+ 		<display:column property="companyName" title="Company Name" sortable="true"></display:column>
+ 		<display:column title="Company Type" sortable="true">${companyList.companyType.companyTypeName}</display:column>
+		<display:column paramId="companyId" paramProperty="companyId" title="Edit"
+			href="editCompany">Edit</display:column> 
+		<display:column paramId="companyId" paramProperty="companyId" title="Delete" 
+ 			href="deleteCompany">Delete</display:column> 
+ 	</display:table>
 </body>
 </html>

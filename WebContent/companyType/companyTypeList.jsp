@@ -40,7 +40,7 @@
 	
 	<display:table name="${companyTypeList}" id="companyTypeList"
 		class="table table-striped table-bordered" list="companyTypeList"
-		requestURI="/ListCouncil" pagesize="3" export="true">
+		requestURI="/ListCompanyType" pagesize="3" export="true">
 		<display:setProperty name="export.pdf.filename" value="example.pdf" />
 		<display:setProperty name="decorator.media.rtf"
 			value="org.displaytag.sample.decorators.ItextTotalWrapper" />
