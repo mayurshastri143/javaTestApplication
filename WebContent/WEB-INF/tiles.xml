@@ -31,5 +31,8 @@
         <put-attribute name="title" value="Welcome" />
         <put-attribute name="body" value="/company/companyList.jsp" />
     </definition>
-    
+    <definition name="/companyAdd.tiles" extends="baseLayout">
+        <put-attribute name="title" value="Welcome" />
+        <put-attribute name="body" value="/company/companyAdd.jsp" />
+    </definition>
 </tiles-definitions>

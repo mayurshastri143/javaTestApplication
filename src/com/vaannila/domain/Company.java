@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.swing.text.StyleContext.SmallAttributeSet;
 
 /**
  * @author Pirate
@@ -35,7 +34,7 @@ public class Company {
 	
 	@Column(name="IsMain")
 	private int isMain;
-
+	
 	public int getCompanyId() {
 		return CompanyId;
 	}
@@ -67,8 +66,4 @@ public class Company {
 	public void setIsMain(int isMain) {
 		this.isMain = isMain;
 	}
-	
-	
-	
-	
 }

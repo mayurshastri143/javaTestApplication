@@ -1,12 +1,18 @@
 package com.vaannila.web;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Session;
 
+import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -14,9 +20,11 @@ import com.vaannila.dao.CompanyDAO;
 import com.vaannila.dao.CompanyDAOImpl;
 import com.vaannila.dao.CompanyTypeDAO;
 import com.vaannila.dao.CompanyTypeDAOImpl;
-import com.vaannila.domain.City;
+import com.vaannila.dao.ImageUploadDAO;
+import com.vaannila.dao.ImageUploadDAOImpl;
 import com.vaannila.domain.Company;
 import com.vaannila.domain.CompanyType;
+import com.vaannila.domain.ImageUpload;
 
 
 public class CompanyAction extends ActionSupport implements ModelDriven<Company> {
@@ -32,6 +40,10 @@ public class CompanyAction extends ActionSupport implements ModelDriven<Company>
 	private CompanyTypeDAO companyTypeDAO=new CompanyTypeDAOImpl();
 	private CompanyType companyType= new CompanyType();
 	
+	
+	@SessionTarget
+	Session session;
+	
 	@Override
 	public Company getModel() {
 		return company;
@@ -39,18 +51,12 @@ public class CompanyAction extends ActionSupport implements ModelDriven<Company>
 
 	public String saveOrUpdate()
 	{	
-		if(company.getCompanyName()==null){
-			companyTypeList=companyTypeDAO.findAll(CompanyType.class);
-		}else{
-			companyDAO.save(company);
-			companyTypeList=companyTypeDAO.findAll(CompanyType.class);
-		}
+		companyDAO.save(company);
 		return SUCCESS;
 	}
 	
 	public String list()
 	{
-		companyList=companyDAO.findAll(Company.class);
 		companyTypeList=companyTypeDAO.findAll(CompanyType.class);
 		return SUCCESS;
 	}
@@ -59,13 +65,14 @@ public class CompanyAction extends ActionSupport implements ModelDriven<Company>
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		companyDAO.delete(company);
+		companyList=companyDAO.findAll(Company.class);
 		return SUCCESS;
 	}
 	
 	public String edit()
 	{
 		HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-		company= companyDAO.findByID(Company.class, Integer.parseInt(request.getParameter("CompanyId")));
+		company= companyDAO.findByID(Company.class, Integer.parseInt(request.getParameter("companyId")));
 		companyList=companyDAO.findAll(Company.class);
 		companyTypeList=companyTypeDAO.findAll(CompanyType.class);
 		return SUCCESS;
@@ -119,6 +126,4 @@ public class CompanyAction extends ActionSupport implements ModelDriven<Company>
 	public void setCompanyType(CompanyType companyType) {
 		this.companyType = companyType;
 	}
-
-	
 }

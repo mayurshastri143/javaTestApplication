@@ -58,5 +58,5 @@
 	<include file="struts-cities.xml"></include>
 	<include file="struts-council.xml"></include>
 	<include file="struts-companyTypes.xml"></include>
-	<include file="struts-companies.xml"></include>
+	<include file="configs/struts-companies.xml"></include>
 </struts>

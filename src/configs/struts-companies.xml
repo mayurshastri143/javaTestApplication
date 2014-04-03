@@ -22,5 +22,8 @@
 		<action name="searchCompany" method="search" class="com.vaannila.web.CompanyAction">
 			<result name="success" type="tiles">/companyList.tiles</result>
 		</action>
+		<action name="companyadd">
+			<result type="tiles">/companyAdd.tiles</result>
+		</action>
 	</package>
 </struts>

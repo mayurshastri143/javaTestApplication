@@ -6,6 +6,6 @@
 <body>
 	<s:select list="cityList" listKey="CityId"
 				listValue="CityName" name="city.CityId" headerKey=""
-				headerValue="Select" label="Select a city" id="CityId"/>
+				headerValue="Select" label="Select a city" id="CityId"/>z
 </body>
 </html>

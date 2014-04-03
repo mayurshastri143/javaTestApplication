@@ -4,5 +4,5 @@
 	<s:a href="saveOrUpdateCity" cssClass=".act-info">Add City</s:a>
 	<s:a href="saveOrUpdateCouncil" cssClass=".act-info">Add Council</s:a>
 	<s:a href="saveOrUpdateCompanyType" cssClass=".act-info">Add Company Type</s:a>
-	<s:a href="saveOrUpdateCompany" cssClass=".act-info">Add Company</s:a>
+	<s:a href="companyadd" cssClass=".act-info">Add Company</s:a>
 	

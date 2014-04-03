@@ -11,6 +11,7 @@
 <style type="text/css">
 @import url(css/bootstrap/css/bootstrap.css);
 
+
 @import url(css/bootstrap/css/bootstrap-responsive.css);
 
 @import url(css/bootstrap/css/docs.css);
@@ -20,10 +21,14 @@
 @import url(css/bootstrap/css/bootstrap-datetimepicker.min.css);
 
 @IMPORT url("js/bootstrap.min.js");
+
+@IMPORT url("js/bootstrap-fileupload.js");
+
+@import url(css/bootstrap-fileupload.css);
 </style>
 <body>
 
-	<s:form action="saveOrUpdateCompany">
+	<s:form action="saveOrUpdateCompany"  method="post" enctype="multipart/form-data">
 	<s:actionerror/>
 	  <s:fielderror />  
 		<s:push value="company">
@@ -43,7 +48,7 @@
 	
 	<display:table name="${companyList}" id="companyList"
  		class="table table-striped table-bordered" list="companyList" 
- 		requestURI="/ListCompany" pagesize="3" export="true"> 
+ 		requestURI="/ListCompany" pagesize="30" export="true"> 
 		<display:setProperty name="export.pdf.filename" value="example.pdf" />
 		<display:setProperty name="decorator.media.rtf"
 			value="org.displaytag.sample.decorators.ItextTotalWrapper" />

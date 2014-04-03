@@ -43,6 +43,7 @@
 		<mapping class="com.vaannila.domain.Council" />
 		<mapping class="com.vaannila.domain.CompanyType" />
 		<mapping class="com.vaannila.domain.Company" />
+		<mapping class="com.vaannila.domain.ImageUpload" />
 		
 	</session-factory>
 </hibernate-configuration>
